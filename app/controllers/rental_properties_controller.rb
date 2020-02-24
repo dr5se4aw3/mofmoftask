@@ -8,6 +8,7 @@ class RentalPropertiesController < ApplicationController
   def new
     @property = RentalProperty.new
     @property.nearest_stations.build
+    @property.nearest_stations.build
   end
 
   def create
@@ -32,6 +33,8 @@ class RentalPropertiesController < ApplicationController
   end
 
   def destroy
+    @property.destroy
+    redirect_to rental_properties_path
   end
 
   private
