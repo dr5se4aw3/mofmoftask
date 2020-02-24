@@ -1,4 +1,6 @@
 class RentalPropertiesController < ApplicationController
+  before_action :set_property, only: [:show, :edit, :update, :destroy]
+  before_action :set_station, only: [:show, :edit, :update, :destroy]
   def index
     @properties = RentalProperty.all
   end
@@ -17,7 +19,16 @@ class RentalPropertiesController < ApplicationController
     end
   end
 
+  def edit
+
+  end
+
   def update
+    if @property.update(property_params)
+      redirect_to rental_properties_path
+    else
+      render :edit
+    end
   end
 
   def destroy
@@ -26,7 +37,11 @@ class RentalPropertiesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_property
-      @property = property.find(params[:id])
+      @property = RentalProperty.find(params[:id])
+    end
+
+    def set_station
+      @station = NearestStation.where(rental_property_id: @property.id)
     end
 
     # Only allow a list of trusted parameters through.
@@ -37,7 +52,10 @@ class RentalPropertiesController < ApplicationController
         :address,
         :age,
         :note,
-        stations_attributes: [:id, :name, :raleway, :minute ]
+        nearest_stations_attributes: [:id,
+                              :name,
+                              :raleway,
+                              :minute ]
       )
     end
 end

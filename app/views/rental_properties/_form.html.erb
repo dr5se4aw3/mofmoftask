@@ -22,7 +22,7 @@
       <li><%= form.text_field :age %>年</li>
       <li><%= form.label :note %></li>
       <li><%= form.text_area :note %></li>
-      <%= form.fields_for :stations do |s| %>
+      <%= form.fields_for :nearest_stations do |s| %>
         <li><strong>最寄駅</strong></li>
         <li><%= s.label :raleway %></li>
         <li><%= s.text_field :raleway %></li>

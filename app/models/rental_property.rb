@@ -1,4 +1,4 @@
 class RentalProperty < ApplicationRecord
-  has_many :nearest_stations, dependent: :destroy
+  has_many :nearest_stations
   accepts_nested_attributes_for :nearest_stations
 end
