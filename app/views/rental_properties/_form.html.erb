@@ -23,7 +23,7 @@
       <li><%= form.label :note %></li>
       <li><%= form.text_area :note %></li>
       <%= form.fields_for :nearest_stations do |s| %>
-        <li><strong>最寄駅</strong></li>
+        <li><strong>最寄駅 <%= s.index+1 %></strong></li>
         <li><%= s.label :raleway %></li>
         <li><%= s.text_field :raleway %></li>
         <li><%= s.label :name %></li>

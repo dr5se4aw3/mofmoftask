@@ -1,0 +1,15 @@
+<ul>
+  <li>物件名：<%= @property.name %></li>
+  <li>賃料：<%= @property.rent %>円</li>
+  <li>住所：<%= @property.address %></li>
+  <li>築年数：<%= @property.age %></li>
+  <li>備考：<%= @property.note %></li>
+</ul>
+<% @station.each.with_index(1) do |s, i| %>
+最寄駅<%= i %>
+<ul>
+  <li>路線名：<%= s.raleway %></li>
+  <li>駅名：<%= s.name %></li>
+  <li>徒歩分数：<%= s.minute %></li>
+</ul>
+<% end %>

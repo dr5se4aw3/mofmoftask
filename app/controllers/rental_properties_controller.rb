@@ -8,7 +8,6 @@ class RentalPropertiesController < ApplicationController
   def new
     @property = RentalProperty.new
     @property.nearest_stations.build
-    @property.nearest_stations.build
   end
 
   def create
