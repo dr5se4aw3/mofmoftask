@@ -26,10 +26,10 @@
     </ul>
     <div class="form_station">
       <% i = 0 %>
-      <%= form.nested_fields_for :nearest_stations, wrapper_tag: :div do |s| %>
+      <%= form.fields_for :nearest_stations do |s| %>
       <% i += 1 %>
         <ul>
-          <p class="moyorieki"></p>
+          <p class="moyorieki">最寄駅<%= s.index + 1 %></p>
           <li><%= s.label :raleway %></li>
           <li><%= s.text_field :raleway %></li>
           <li><%= s.label :name %></li>
@@ -38,10 +38,8 @@
           <li><%= s.text_field :minute %>分</li>
         </ul>
         <div class="delete_station">
-        <%= s.remove_nested_fields_link '最寄り駅を削除', role: 'button', id: "deleteSta" %>
         </div>
       <% end %>
-    <%= form.add_nested_fields_link :nearest_stations, '最寄り駅を追加', id: "addStation"%>
   </div>
   <div class="actions">
     <%= form.submit %>
