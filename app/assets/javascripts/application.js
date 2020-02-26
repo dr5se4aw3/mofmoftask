@@ -10,19 +10,7 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require rails-ujs
-//= require jquery_nested_form
 //= require jquery
-//= require jquery/dist/jquery.js
-//= require jquery.turbolinks
-//= require activestorage
-//= require turbolinks
+//= require jquery_ujs
+//= require nested_form_fields
 //= require_tree .
-
-$(function() {
-  function setFieldNum() {
-    $('.form_station').children('div.fields:visible').each(function(index) {
-      $(this).find('#station_header').text($('.form_station').children('div.fields:visible').index(this) + 1)
-    });
-  }
-});
