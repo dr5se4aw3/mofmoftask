@@ -18,12 +18,11 @@
 //= require activestorage
 //= require turbolinks
 //= require_tree .
-/*
+
 $(function() {
-  var i = 0;
-  $('#addbutton').on('click', function(){
-    i++;
-    $('#form_station').clone(true).appendTo("#form_property")
-  });
+  function setFieldNum() {
+    $('.form_station').children('div.fields:visible').each(function(index) {
+      $(this).find('#station_header').text($('.form_station').children('div.fields:visible').index(this) + 1)
+    });
+  }
 });
-*/

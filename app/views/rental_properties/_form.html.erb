@@ -1,7 +1,7 @@
 <%= nested_form_for property do |form| %>
   <% if property.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(property.errors.count, "error") %> prohibited this property from being saved:</h2>
+      <h2><%= property.errors.count %> 件のエラーがあります。</h2>
 
       <ul>
       <% property.errors.full_messages.each do |message| %>
@@ -24,9 +24,9 @@
       <li><%= form.label :note %></li>
       <li><%= form.text_area :note %></li>
     </ul>
-
-    <%= form.fields_for :nearest_stations  do |s| %>
-      <ul>
+    <div class="form_station">
+      <%= form.fields_for :nearest_stations  do |s| %>
+        <ul>
           <li id="station_header"><strong>最寄駅</strong></li>
           <li><%= s.label :raleway %></li>
           <li><%= s.text_field :raleway %></li>
@@ -34,10 +34,11 @@
           <li><%= s.text_field :name %></li>
           <li><%= s.label :minute %></li>
           <li><%= s.text_field :minute %>分</li>
-      </ul>
-      <%= s.link_to_remove "削除" %>
-    <% end %>
-    <%= form.link_to_add "最寄駅を追加", :nearest_stations %>
+        </ul>
+        <%= s.link_to_remove "削除" %>
+      <% end %>
+    </div>
+    <%= form.link_to_add "最寄駅を追加", :nearest_stations, data: { target: ".form_station" } %>
   </div>
   <div class="actions">
     <%= form.submit %>

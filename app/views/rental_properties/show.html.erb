@@ -1,18 +1,20 @@
 <ul>
-  <li>物件名：<%= @property.name %></li>
-  <li>賃料：<%= @property.rent %>円</li>
-  <li>住所：<%= @property.address %></li>
-  <li>築年数：<%= @property.age %></li>
-  <li>備考：<%= @property.note %></li>
+  <li><strong>物件名：</strong><%= @property.name %></li>
+  <li><strong>賃料：</strong><%= @property.rent %>円</li>
+  <li><strong>住所：</strong><%= @property.address %></li>
+  <li><strong>築年数：</strong><%= @property.age %></li>
+  <li><strong>備考：</strong><%= @property.note %></li>
 </ul>
+<div class="form_station">
 <% @station.each.with_index(1) do |s, i| %>
-最寄駅<%= i %>
+<strong>最寄駅<%= i %></strong>
 <ul>
-  <li>路線名：<%= s.raleway %></li>
-  <li>駅名：<%= s.name %></li>
-  <li>徒歩分数：<%= s.minute %></li>
+  <li><strong>路線名：</strong><%= s.raleway %></li>
+  <li><strong>駅名：</strong><%= s.name %></li>
+  <li><strong>徒歩分数：</strong><%= s.minute %></li>
 </ul>
 <% end %>
+</div>
 
 <%= link_to "編集", edit_rental_property_path(@property) %>|
 <%= link_to "戻る", rental_properties_path %>
